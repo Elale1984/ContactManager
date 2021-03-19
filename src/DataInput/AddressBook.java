@@ -61,7 +61,7 @@ public class AddressBook {
     }
 
     // the search by name searches for the contact that contains the string that it is given to search for,
-    // it prints out the contacts that it finds with toString
+    // it prints out the contacts that it finds to the toString
     public void searchByName(String searchFor){
         int cnt = 0;
         ArrayList searchResult = new ArrayList();
