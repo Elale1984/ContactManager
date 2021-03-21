@@ -81,7 +81,7 @@ public class BusinessContact extends contactBase{
         System.out.println("Name: \t\t\t" + super.name + "\nAddress: \t\t" + super.streetName + " " + super.city +
                 " " + super.zip + " " + super.country + "\n" + "Phone: \t\t\t" + super.phoneNum + "\n" +
                 "Pic Name: \t\t" + super.picName + "\n" + "Email: \t\t\t" + super.email + "\n" +
-                "URL: \t\t\t" + url + "\n" + "Rating: \t\t" + rating);
+                "URL: \t\t\t" + url + "\n" + "Rating: \t\t" + rating + "\n" + "Open Hours: \t" + openHour + " - " + closeHour);
         return "\r";
     }
 
