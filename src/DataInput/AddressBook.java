@@ -1,8 +1,9 @@
 package DataInput;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Locale;
+import DataRecall.BusinessServices;
+
+import java.lang.reflect.Array;
+import java.util.*;
 
 public class AddressBook {
     private List  <contactBase> contacts;
@@ -198,6 +199,151 @@ public class AddressBook {
             System.out.println(" ");
         }
 
+    }
+    //create new personal contact input promps
+    public static void createPersonal(BusinessServices bs, Scanner input){
+
+        PersonalContact p = new PersonalContact();
+        System.out.print("Name: ");
+        p.setName(input.next());
+        System.out.print("\nPhone Number: ");
+        p.setPhoneNum(input.next());
+        System.out.print("\nStreet Name: ");
+        p.setStreetName(input.next());
+        System.out.print("\nCity: ");
+        p.setCity(input.next());
+        System.out.print("\nState: ");
+        p.setState(input.next());
+        System.out.print("\nZip Code: ");
+        p.setZip(input.next());
+        System.out.print("\nCountry: ");
+        p.setCountry(input.next());
+        System.out.print("\nPic Name: ");
+        p.setPicName(input.next());
+        System.out.print("\nEmail: ");
+        p.setEmail(input.next());
+        System.out.print("\nDOB: ");
+        p.setDOB(input.next());
+        System.out.print("\nAdd a Description: ");
+        p.setDescription(input.next());
+        p.setType('P');
+
+
+        bs.list.addOne(p);
+        System.out.println("\n");
+
+    }
+    //create new business contact input prompts
+    public static void createBusiness(BusinessServices bs, Scanner input){
+
+
+
+        String openHourAns, closeHourAns;
+        String openDayAns;
+        BusinessContact b = new BusinessContact();
+        System.out.print("Business Name: ");
+        b.setName(input.next());
+        System.out.print("\nPhone Number: ");
+        b.setPhoneNum(input.next());
+        System.out.print("\nStreet Name: ");
+        b.setStreetName(input.next());
+        System.out.print("\nCity: ");
+        b.setCity(input.next());
+        System.out.print("\nState: ");
+        b.setState(input.next());
+        System.out.print("\nZip Code: ");
+        b.setZip(input.next());
+        System.out.print("\nCountry: ");
+        b.setCountry(input.next());
+        System.out.print("\nPic Name: ");
+        b.setPicName(input.next());
+        System.out.print("\nEmail: ");
+        b.setEmail(input.next());
+
+        Boolean[] theOpenDays = new Boolean[7];
+        Arrays.fill(theOpenDays, false);
+        String[] theClosedHours = new String[7];
+        String[] theOpenHours = new String[7];
+        // find out open and close times for each day
+        System.out.print("\nIs the business open Sunday(y/n): ");
+        openDayAns = input.next();
+        if (openDayAns.equalsIgnoreCase("y")){
+            theOpenDays[0] = true;
+            System.out.println("What time will they open: ");
+            theOpenHours[0] = input.next();
+            System.out.println("What time will they close: ");
+            theClosedHours[0] = input.next();
+
+
+
+        }
+        System.out.print("\nIs the business open Monday(y/n): ");
+        openDayAns = input.next();
+        if (openDayAns.equalsIgnoreCase("y")){
+            theOpenDays[1] = true;
+            System.out.println("What time will they open: ");
+            theOpenHours[1] = input.next();
+            System.out.println("What time will they close: ");
+            theClosedHours[1] = input.next();
+
+        }
+        System.out.print("\nIs the business open Tuesday(y/n): ");
+        openDayAns = input.next();
+        if (openDayAns.equalsIgnoreCase("y")){
+            theOpenDays[2] = true;
+            System.out.println("What time will they open: ");
+            theOpenHours[2] = input.next();
+            System.out.println("What time will they close: ");
+            theClosedHours[2] = input.next();
+        }
+        System.out.print("\nIs the business open Wednesday(y/n): ");
+        openDayAns = input.next();
+        if (openDayAns.equalsIgnoreCase("y")){
+            theOpenDays[3] = true;
+            System.out.println("What time will they open: ");
+            theOpenHours[3] = input.next();
+            System.out.println("What time will they close: ");
+            theClosedHours[3] = input.next();
+        }
+        System.out.print("\nIs the business open Thursday(y/n): ");
+        openDayAns = input.next();
+        if (openDayAns.equalsIgnoreCase("y")){
+            theOpenDays[4] = true;
+            System.out.println("What time will they open: ");
+            theOpenHours[4] = input.next();
+            System.out.println("What time will they close: ");
+            theClosedHours[4] = input.next();
+        }
+        System.out.print("\nIs the business open Friday(y/n): ");
+        openDayAns = input.next();
+        if (openDayAns.equalsIgnoreCase("y")){
+            theOpenDays[5] = true;
+            System.out.println("What time will they open: ");
+            theOpenHours[5] = input.next();
+            System.out.println("What time will they close: ");
+            theClosedHours[5] = input.next();
+        }
+        System.out.print("\nIs the business open Saturday(y/n): ");
+        openDayAns = input.next();
+        if (openDayAns.equalsIgnoreCase("y")){
+            theOpenDays[6] = true;
+            System.out.println("What time will they open: ");
+            theOpenHours[6] = input.next();
+            System.out.println("What time will they close: ");
+            theClosedHours[0] = input.next();
+        }
+
+
+        b.setOpenHour(theOpenHours);
+        b.setCloseHour(theClosedHours);
+        b.setOpenDays(theOpenDays);
+
+        System.out.print("\nURL: ");
+        b.setUrl(input.next());
+        System.out.print("\nRating(1-5): ");
+        b.setRating(input.nextInt());
+        b.setType('B');
+        bs.list.addOne(b);
     }
 }
 

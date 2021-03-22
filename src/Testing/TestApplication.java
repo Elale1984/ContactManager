@@ -78,11 +78,11 @@ public class TestApplication {
                     System.out.println("2: Add Business Contact");
                     int option = input.nextInt();
                     if (option == 1)  {
-                        createPersonal(bs, input);
+                        bs.list.createPersonal(bs, input);
 
                     }
                     else{
-                        createBusiness(bs, input);
+                        bs.list.createBusiness(bs, input);
                     }
                     break;
                 case 7:
@@ -170,116 +170,8 @@ public class TestApplication {
 
 
     }
-    //create new personal contact input promps
-    public static void createPersonal(BusinessServices bs, Scanner input){
-
-        PersonalContact p = new PersonalContact();
-        System.out.print("Name: ");
-        p.setName(input.next());
-        System.out.print("\nPhone Number: ");
-        p.setPhoneNum(input.next());
-        System.out.print("\nStreet Name: ");
-        p.setStreetName(input.next());
-        System.out.print("\nCity: ");
-        p.setCity(input.next());
-        System.out.print("\nState: ");
-        p.setState(input.next());
-        System.out.print("\nZip Code: ");
-        p.setZip(input.next());
-        System.out.print("\nCountry: ");
-        p.setCountry(input.next());
-        System.out.print("\nPic Name: ");
-        p.setPicName(input.next());
-        System.out.print("\nEmail: ");
-        p.setEmail(input.next());
-        System.out.print("\nDOB: ");
-        p.setDOB(input.next());
-        System.out.print("\nAdd a Description: ");
-        p.setDescription(input.next());
-        p.setType('P');
 
 
-        bs.list.addOne(p);
-        System.out.println("\n");
-
-    }
-    //create new business contact input prompts
-    public static void createBusiness(BusinessServices bs, Scanner input){
-
-        boolean s,m,t,w,th,f,sa;
-        String openDayAns;
-        BusinessContact b = new BusinessContact();
-        System.out.print("Business Name: ");
-        b.setName(input.next());
-        System.out.print("\nPhone Number: ");
-        b.setPhoneNum(input.next());
-        System.out.print("\nStreet Name: ");
-        b.setStreetName(input.next());
-        System.out.print("\nCity: ");
-        b.setCity(input.next());
-        System.out.print("\nState: ");
-        b.setState(input.next());
-        System.out.print("\nZip Code: ");
-        b.setZip(input.next());
-        System.out.print("\nCountry: ");
-        b.setCountry(input.next());
-        System.out.print("\nPic Name: ");
-        b.setPicName(input.next());
-        System.out.print("\nEmail: ");
-        b.setEmail(input.next());
-        System.out.print("\nDOB: ");
-
-        // find out open and close times for each day
-        System.out.println("Is the business open Sunday(y/n): ");
-        openDayAns = input.next();
-        if (openDayAns == "y" || openDayAns == "Y"){
-            s = true;
-            System.out.print("Open Time(hh:mm am/pm): ");
-            b.setOpenHour(input.next());
-
-        }
-        System.out.println("Is the business open Monday(y/n): ");
-        openDayAns = input.next();
-        if (openDayAns == "y" || openDayAns == "Y"){
-            m = true;
-        }
-        System.out.println("Is the business open Tuesday(y/n): ");
-        openDayAns = input.next();
-        if (openDayAns == "y" || openDayAns == "Y"){
-            t = true;
-        }
-        System.out.println("Is the business open Wednesday(y/n): ");
-        openDayAns = input.next();
-        if (openDayAns == "y" || openDayAns == "Y"){
-            w = true;
-        }
-        System.out.println("Is the business open Thursday(y/n): ");
-        openDayAns = input.next();
-        if (openDayAns == "y" || openDayAns == "Y"){
-            th = true;
-        }
-        System.out.println("Is the business open Friday(y/n): ");
-        openDayAns = input.next();
-        if (openDayAns == "y" || openDayAns == "Y"){
-            f = true;
-        }
-        System.out.println("Is the business open Saturday(y/n): ");
-        openDayAns = input.next();
-        if (openDayAns == "y" || openDayAns == "Y"){
-            sa = true;
-        }
-
-        System.out.print("\nOpen Time(hh:mm am/pm): ");
-        b.setOpenHour(input.next());
-        System.out.print("\nClose Time(hh:mm am/pm): ");
-        b.setCloseHour(input.next());
-        System.out.print("\nURL: ");
-        b.setUrl(input.next());
-        System.out.print("\nRating(1-5): ");
-        b.setRating(input.nextInt());
-        b.setType('B');
-        bs.list.addOne(b);
-    }
 
 
 
