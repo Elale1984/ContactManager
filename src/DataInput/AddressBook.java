@@ -1,13 +1,19 @@
 package DataInput;
 
 import DataRecall.BusinessServices;
+import com.fasterxml.jackson.annotation.JsonAutoDetect;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 
 import java.lang.reflect.Array;
 import java.util.*;
-
+@JsonAutoDetect(fieldVisibility = JsonAutoDetect.Visibility.ANY)
 public class AddressBook {
+
     private List  <contactBase> contacts;
+    @JsonIgnore
     private List <BusinessContact> allBusinesses;
+    @JsonIgnore
     private List <PersonalContact> allPersonals;
 
 
@@ -260,10 +266,12 @@ public class AddressBook {
         System.out.print("\nEmail: ");
         b.setEmail(input.next());
 
+        // creates arrays for contact information
         Boolean[] theOpenDays = new Boolean[7];
         Arrays.fill(theOpenDays, false);
         String[] theClosedHours = new String[7];
         String[] theOpenHours = new String[7];
+
         // find out open and close times for each day
         System.out.print("\nIs the business open Sunday(y/n): ");
         openDayAns = input.next();
@@ -273,9 +281,6 @@ public class AddressBook {
             theOpenHours[0] = input.next();
             System.out.println("What time will they close: ");
             theClosedHours[0] = input.next();
-
-
-
         }
         System.out.print("\nIs the business open Monday(y/n): ");
         openDayAns = input.next();
@@ -330,10 +335,10 @@ public class AddressBook {
             System.out.println("What time will they open: ");
             theOpenHours[6] = input.next();
             System.out.println("What time will they close: ");
-            theClosedHours[0] = input.next();
+            theClosedHours[6] = input.next();
         }
 
-
+        //passes the created arrays as args for the Business contact setters
         b.setOpenHour(theOpenHours);
         b.setCloseHour(theClosedHours);
         b.setOpenDays(theOpenDays);

@@ -1,6 +1,8 @@
 package DataInput;
 
+
 public abstract class contactBase {
+
     protected String name;
     protected String phoneNum;
     protected String streetName;
@@ -12,7 +14,9 @@ public abstract class contactBase {
     protected String email;
     protected char type;
 
+
     //getters and setters
+
     public String getName() {
         return name;
     }
@@ -92,6 +96,7 @@ public abstract class contactBase {
     public void setType(char type) {
         this.type = type;
     }
+
     //constructor
     public contactBase(String name,
                        String phoneNum,
@@ -118,17 +123,9 @@ public abstract class contactBase {
     //no-args Constructor for generic
 
     public contactBase() {
-        this.name = "Jordan Baldwin";
-        this.phoneNum = "303-717-2244";
-        this.streetName = "156 Dale st.";
-        this.city = "Colorado Springs";
-        this.state = "Colorado";
-        this.zip = "80915";
-        this.country = "USA";
-        this.picName = "JBald";
-        this.email = "JBaldwin@kingdomfootsteps.com";
-        this.type = 'P';
+
     }
+
 
 
 }

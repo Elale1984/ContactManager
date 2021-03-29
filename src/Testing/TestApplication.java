@@ -4,15 +4,17 @@ import DataInput.BusinessContact;
 import DataInput.PersonalContact;
 import DataInput.contactBase;
 import DataRecall.BusinessServices;
+import DataServices.DataAccessServices;
 import DataServices.FileIOServices;
+
 
 import java.util.Scanner;
 
 public class TestApplication {
     public static void main(String[] args) throws Exception {
 
-        Scanner input = new Scanner(System.in).useDelimiter("\\n");
 
+        Scanner input = new Scanner(System.in).useDelimiter("\\n");
 
         BusinessServices bs = new BusinessServices();
         PersonalContact pc1 = new PersonalContact();
@@ -149,11 +151,12 @@ public class TestApplication {
                     //read from file
                     System.out.println("Now we are going to read contacts from a file and print them. you will see it below: ");
                     FileIOServices readFile = new FileIOServices();
-                    readFile.importContactFromFile();
                     break;
                 case 14:
-                    //write to file
+                    //write to Json file
                     System.out.println("Saving contacts to file");
+                    DataAccessServices d = new DataAccessServices();
+                    d.writeJsonContacts(bs.list);
                     break;
                 case 99:
                     //exit program
@@ -165,7 +168,9 @@ public class TestApplication {
 
 
         }while (menuOption != 99);
-
+        BusinessServices contList = new BusinessServices();
+        DataAccessServices DAS = new DataAccessServices();
+        DAS.writeJsonContacts(bs.list);
         System.out.println("Thanks for using Contact Manager... Goodbye");
 
 

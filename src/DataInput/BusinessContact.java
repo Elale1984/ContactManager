@@ -1,5 +1,8 @@
 package DataInput;
 
+import com.fasterxml.jackson.annotation.JsonAutoDetect;
+
+@JsonAutoDetect(fieldVisibility = JsonAutoDetect.Visibility.ANY)
 public class BusinessContact extends contactBase{
 
     private String[] openHour, closeHour;
@@ -49,12 +52,12 @@ public class BusinessContact extends contactBase{
     }
 
     //constructor
+
     public BusinessContact(String name, String phoneNum, String streetName, String city, String state,
                            String zip, String country, String picName, String email, String[] openHour,
                            String[] closeHour, Boolean[] openDays, String url, int rating, char type) {
 
         super(name, phoneNum, streetName, city, state, zip, country, picName, email, type);
-        this.openHour = openHour;
         this.openHour = openHour;
         this.closeHour = closeHour;
         this.openDays = openDays;
@@ -87,6 +90,8 @@ public class BusinessContact extends contactBase{
         System.out.println("\nHours of Operations\n");
         String[] daysOfWeek = new String[] {"Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"};
         String oIndicator = "Open";
+
+        //utilizes printf to create a column formatted output
         for(int i = 0; i < openDays.length; i++){
             if(openDays[i]){
                 System.out.printf("%-15s %-10s %-5s - %-5s\n", daysOfWeek[i], oIndicator, openHour[i],closeHour[i]);

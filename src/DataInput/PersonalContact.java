@@ -1,10 +1,16 @@
 package DataInput;
 
+import com.fasterxml.jackson.annotation.JsonAutoDetect;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
+@JsonAutoDetect(fieldVisibility = JsonAutoDetect.Visibility.ANY)
+
 public class PersonalContact extends contactBase{
     private String DOB;
     private String description;
 
     //getters and setters
+   @JsonIgnore
     public String getDOB() {
         return DOB;
     }
@@ -13,15 +19,18 @@ public class PersonalContact extends contactBase{
         this.DOB = DOB;
     }
 
+
     public String getDescription() {
         return description;
     }
+
 
     public void setDescription(String description) {
         this.description = description;
     }
 
     //constructor
+
     public PersonalContact(String name, String phoneNum, String streetName, String city,
                            String state, String zip, String country, String picName, String email,
                            String DOB, String description, char type) {
